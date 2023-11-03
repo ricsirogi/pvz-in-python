@@ -3,7 +3,7 @@ import random
 
 
 class FallingSun():
-    def __init__(self, falling_speed: int, pickup_speed: int, y_pos: int, starting_range: list[int], path_length_range: list[int], collect_destination_cord: tuple[int, int], screen: pygame.Surface) -> None:
+    def __init__(self, falling_speed: float, pickup_speed: int, y_pos: int, starting_range: list[int], path_length_range: list[int], collect_destination_cord: tuple[int, int], screen: pygame.Surface) -> None:
         self.falling_speed = falling_speed
         self.pickup_speed = pickup_speed
         self.y_pos = y_pos
@@ -76,8 +76,6 @@ class FallingSun():
                     continue
             self.coordinates_towards_destination.append((x + 10, x * (y_difference/x_difference) + 10))
         self.picked_up = True
-
-        print(self.coordinates_towards_destination)
 
     def real_round(self, number: float) -> int:
         """

@@ -30,24 +30,26 @@ class Seed():
             self.screen.blit(self.slot_img, self.og_pos)
         if stored_sun >= self.cost and time.time() - self.cooldown > self.time_of_placement:
             self.screen.blit(self.img, self.pos)
+            self.available = True
         else:
+            self.available = False
             if stored_sun < self.cost:
                 self.screen.blit(self.unavailable_img, self.og_pos)
             if time.time() - self.cooldown < self.time_of_placement:
                 self.screen.blit(self.unavailable_img, self.og_pos)
 
     def is_clicked(self, event: pygame.event.Event):
-        if event.type == pygame.MOUSEBUTTONDOWN:
+        if self.is_cursor_hovering() and event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:  # Left mouse button
                 if self.id == "shovel":
                     self.follow_mouse = False
                     self.reset()
-                if self.is_cursor_hovering():
-                    if not self.follow_mouse:
-                        self.follow_mouse = True
-                    else:  # if the seed is following the mouse and we click at it's original place, then put it back
-                        self.follow_mouse = False
-                        self.reset()
+
+                if not self.follow_mouse:
+                    self.follow_mouse = True
+                else:  # if the seed is following the mouse and we click at it's original place, then put it back
+                    self.follow_mouse = False
+                    self.reset()
         elif event.type == pygame.MOUSEBUTTONUP:
             if event.button == 3:  # Right mouse button
                 if self.follow_mouse:
