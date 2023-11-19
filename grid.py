@@ -4,10 +4,11 @@ import numpy as np
 
 
 class Grid(object):
-    def __init__(self, pos: tuple[int, int], column_row: list[int], cell_size: list[int], cell_color: list[int], border_color: list[int], border_size: int, screen: pygame.Surface):
+    def __init__(self, pos: tuple[int, int], column_row: list[int], cell_size: list[int], cell_color_a: list[int], cell_color_b: list[int], border_color: list[int], border_size: int, screen: pygame.Surface):
         self.column_row = column_row  # I know that it's supposed to be row and then column but the code flips it around and idk how to fix it
         self.cell_size = cell_size
-        self.cell_color = cell_color
+        self.cell_color_a = cell_color_a
+        self.cell_color_b = cell_color_b
         self.border_color = border_color
         self.border_size = border_size
         self.pos = pos
@@ -86,9 +87,13 @@ class Grid(object):
 
     def draw(self):
         pygame.draw.rect(self.screen, self.border_color, self.border)
-        for y in self.cells:
-            for x in y:
-                pygame.draw.rect(self.screen, self.cell_color, x)
+        for y_count, y in enumerate(self.cells):
+            for x_count, x in enumerate(y):
+                if y_count % 2 == 0:
+                    color = self.cell_color_a if x_count % 2 == 0 else self.cell_color_b
+                else:
+                    color = self.cell_color_a if x_count % 2 == 1 else self.cell_color_b
+                pygame.draw.rect(self.screen, color, x)
 
     def __del__(self):
         pass

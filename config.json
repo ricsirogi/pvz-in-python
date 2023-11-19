@@ -1,0 +1,56 @@
+{
+  "sun_display": {
+    "pos": [10, 10],
+    "font_size": 30,
+    "font_color": [255, 255, 255]
+  },
+  "grid": {
+    "column_row": [9, 5],
+    "cell_size": [130, 120],
+    "cell_color_a": [2, 119, 16],
+    "cell_color_b": [2, 138, 22],
+    "border_color": [255, 255, 255],
+    "border_size": 3
+  },
+  "sun": {
+    "falling_speed": 1.6,
+    "spawning_speed": 1,
+    "pickup_speed": 75,
+    "starting_y_pos": 200,
+    "starting_x_pos_range": [150, 1240],
+    "path_length_range": [400, 600]
+  },
+  "shovel": {
+    "pos": [1000, 50]
+  },
+  "peashooter_seed": {
+    "pos": [100, 50],
+    "cost": 100,
+    "cooldown": 5
+  },
+  "sunflower_seed": {
+    "cost": 50,
+    "cooldown": 3,
+    "pos": [200, 50]
+  },
+  "seed": {
+    "width_height": [75, 100],
+    "unavailable_color": [255, 0, 0],
+    "available": true
+  },
+  "zombie": {
+    "starting_poses": [100, 200, 300, 400, 500],
+    "speed_range": [0.5, 1.5],
+    "health": 100,
+    "width_height": [100, 100],
+    "attack_damage": 10,
+    "attack_range": 100,
+    "attack_width_height": [10, 10],
+    "attack_speed": 1,
+    "attack_pos_offset": [0, 0]
+  },
+  "other": {
+    "background_color": [218, 207, 183],
+    "shovel_brightness_change": 40
+  }
+}
